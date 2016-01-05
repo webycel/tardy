@@ -19,15 +19,11 @@
 @import 'foundation/components/clearing';
 @import 'foundation/components/dropdown';
 @import 'foundation/components/dropdown-buttons';
-// @import 'foundation/components/flex-video';
 @import 'foundation/components/forms';
 @import 'foundation/components/icon-bar';
 @import 'foundation/components/inline-lists';
 // @import 'foundation/components/joyride';
-// @import 'foundation/components/keystrokes';
 @import 'foundation/components/labels';
-// @import 'foundation/components/magellan';
-// @import 'foundation/components/orbit';
 @import 'foundation/components/pagination';
 @import 'foundation/components/panels';
 // @import 'foundation/components/pricing-tables';
@@ -47,4 +43,15 @@
 // @import 'foundation/components/offcanvas';
 @import 'foundation/components/visibility';
 
-@import 'appstyles';
+@import "compass/css3";
+@import "compass/utilities";
+
+@media #{$small-up} {
+	@import 'app/small';
+}
+@media #{$medium-up} {
+	@import 'app/medium';
+}
+@media #{$large-up} {
+	@import 'app/large';
+}

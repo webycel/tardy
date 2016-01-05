@@ -4,6 +4,7 @@
     "foundation": "zurb/bower-foundation",
     "zepto": "~1.1.6",
     "Zepto-Cookie": "zepto-cookie#*",
-    "lightrouter": "~0.3.3"
+    "lightrouter": "~0.3.3",
+    "underscore": "~1.8.3"
   }
 }
