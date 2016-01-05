@@ -1,0 +1,9 @@
+{
+  "name": "zf5_project",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation",
+    "zepto": "~1.1.6",
+    "Zepto-Cookie": "zepto-cookie#*",
+    "lightrouter": "~0.3.3"
+  }
+}
