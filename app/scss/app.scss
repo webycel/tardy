@@ -49,6 +49,9 @@
 @import "compass/css3";
 @import "compass/utilities";
 
+
+@import "app/general";
+
 @media #{$small-up} {
 	@import 'app/small';
 }

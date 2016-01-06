@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation project</title>
+    <title>Tardy</title>
     <!-- build:css css/libraries.min.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -18,9 +18,48 @@
   </head>
   <body>
 
+    <header class="text-center">
+      <h1 class="name">Tardy</h1>
+    </header>
+
     <div class="row">
       <div class="small-12 small-centered medium-10 medium-centered columns">
-        <h1>Tardy</h1>
+
+        <!-- AUTH ERROR - START -->
+        <script type="text/html" id='auth_error'>
+        <div class="row">
+          <div class="small-12 medium-8 medium-centered large-6 large-centered">
+            <p class="alert-box alert">
+              <strong>Error <%= status %></strong>
+              <%= message %>
+            </p>
+          </div>
+        </div>
+        </script>
+        <div id="error_target"></div>
+        <!-- AUTH ERROR - END -->
+
+
+        <!-- LOGIN / REGISTER - START -->
+        <div class="row">
+          <div class="small-10 small-centered medium-6 medium-centered large-4 large-centered columns">
+
+            <form>
+              <h4 class="text-center">Log in with your email account</h4>
+              <label>Email
+                <input type="text" placeholder="somebody@example.com">
+              </label>
+              <label>Password
+                <input type="text" placeholder="Password">
+              </label>
+              <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+              <p><a type="submit" class="button expand">Log In</a></p>
+              <!-- <p class="text-center"><a href="#">Forgot your password?</a></p> -->
+            </form>
+
+          </div>
+        </div>
+        <!-- LOGIN / REGISTER - END -->
 
 
 
@@ -59,6 +98,14 @@
     <!-- endbuild -->
     <!-- build:js js/app.min.js -->
     <script src="js/app.js"></script>
+    <script src="js/helpers/ajax.js"></script>
+    <script src="js/helpers/service.js"></script>
+    <script src="js/team.js"></script>
     <!-- endbuild -->
+    <script>
+      (function() {
+      	Tardy.init();
+      })();
+    </script>
   </body>
 </html>
