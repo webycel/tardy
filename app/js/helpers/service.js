@@ -20,8 +20,8 @@ var TardyService = (function(document, $) {
 		Tardy.init();
 	};
 
-	var displayErrorMessage = function(elem, data) {
-		var template = $(elem).html();
+	var displayErrorMessage = function(data) {
+		var template = $('#error-message').html();
 		$('#error_target').html(_.template(template)(data));
 	};
 

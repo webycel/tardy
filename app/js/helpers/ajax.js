@@ -16,7 +16,7 @@ var TardyAjax = (function(document, $) {
 				displayAuthErrorMessage();
 			} else if (xhr.status === 422) {
 				// Unprocessable Entity (invalid login)
-				TardyService.displayErrorMessage('#auth_error', JSON.parse(xhr.response));
+				TardyService.displayErrorMessage(JSON.parse(xhr.response));
 			}
 
 		};
@@ -36,7 +36,7 @@ var TardyAjax = (function(document, $) {
 				status: '401',
 				errors: 'You don\'t have permission to view this page or perform this action.'
 			};
-			TardyService.displayErrorMessage('#auth_error', error);
+			TardyService.displayErrorMessage(error);
 		};
 
 
