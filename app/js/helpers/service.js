@@ -2,6 +2,18 @@
 
 var TardyService = (function(document, $) {
 
+	var localStorageSupport = false;
+
+	var init = function() {
+		if ($('html').hasClass('localstorage')) {
+			localStorageSupport = true;
+		}
+	};
+
+	var hasLocalStorage = function() {
+		return localStorageSupport;
+	};
+
 	var reloadPageWithHash = function(hash) {
 		var initialPage = location.origin;
   	location.replace(initialPage + '/#' + hash);
@@ -14,8 +26,10 @@ var TardyService = (function(document, $) {
 	};
 
 	return {
+		init: init,
 		reloadPageWithHash: reloadPageWithHash,
-		displayErrorMessage: displayErrorMessage
+		displayErrorMessage: displayErrorMessage,
+		hasLocalStorage: hasLocalStorage
 	};
 
 })(document, Zepto);
