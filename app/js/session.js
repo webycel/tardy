@@ -7,10 +7,15 @@ var TardySession = (function(document, $) {
 	var init = function() {
 		getAuthData();
 
-		$('#login-form').submit(login);
+		// event binders
+		$('#login__form').submit(loginSubmit);
 	};
 
-	var login = function(e) {
+	var loginInit = function() {
+		TardyService.displayView('#login');
+	};
+
+	var loginSubmit = function(e) {
 		e.preventDefault();
 
 		var form = $(this).serializeArray(),
@@ -41,7 +46,7 @@ var TardySession = (function(document, $) {
 
 	var getAuthData = function() {
 		var auth = JSON.parse(localStorage.getItem('user'));
-		user = auth.user;
+		user = _.isNull(auth) ? null : auth.user;
 		console.log(user);
 	};
 
@@ -51,6 +56,7 @@ var TardySession = (function(document, $) {
 
 	return {
 		init: init,
-		getUser: getUser
+		getUser: getUser,
+		loginInit: loginInit
 	};
 })(document, Zepto);

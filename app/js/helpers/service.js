@@ -17,7 +17,7 @@ var TardyService = (function(document, $) {
 	var reloadPageWithHash = function(hash) {
 		var initialPage = location.origin;
   	location.replace(initialPage + '/#' + hash);
-		Tardy.init();
+		Tardy.initRouter();
 	};
 
 	var displayErrorMessage = function(data) {
@@ -25,11 +25,17 @@ var TardyService = (function(document, $) {
 		$('#error_target').html(_.template(template)(data));
 	};
 
+	var displayView = function(view) {
+		$('.content__element').addClass('hide');
+		$(view).removeClass('hide');
+	};
+
 	return {
 		init: init,
-		reloadPageWithHash: reloadPageWithHash,
+		redirectTo: reloadPageWithHash,
 		displayErrorMessage: displayErrorMessage,
-		hasLocalStorage: hasLocalStorage
+		hasLocalStorage: hasLocalStorage,
+		displayView: displayView
 	};
 
 })(document, Zepto);

@@ -12,8 +12,11 @@ var TardyAjax = (function(document, $) {
 
 			if (xhr.status === 401) {
 				// Unauthorized
-				TardyService.reloadPageWithHash('/unauthorized');
 				displayAuthErrorMessage();
+
+				if (!TardySession.getUser()) {
+					TardyService.redirectTo('/login');
+				}
 			} else if (xhr.status === 422) {
 				// Unprocessable Entity (invalid login)
 				TardyService.displayErrorMessage(JSON.parse(xhr.response));
@@ -25,7 +28,7 @@ var TardyAjax = (function(document, $) {
 			return function(xhr, type) {
 				errorHandler(xhr, type, xhr.status);
 
-				if (typeof s !== 'undefined') {
+				if (!_.isUndefined(s)) {
 					s(xhr, type);
 				}
 			};

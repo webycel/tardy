@@ -20,7 +20,7 @@ var Tardy = (function(document, $) {
 			var handler = {
 				teamIndex:		TardyTeam.index,
 				teamShow: 		function(params){},
-				unauthorized: TardyAjax.displayAuthErrorMessage
+				loginInit: TardySession.loginInit
 			};
 
 			var router = new LightRouter({
@@ -31,7 +31,7 @@ var Tardy = (function(document, $) {
 					'': 							'teamIndex', // Base Url
 					'/': 							'teamIndex', // Base Url
 					'/team/{id}':			'teamShow', // Show a team with {id}
-					'/unauthorized':	'unauthorized' // Ajax request was not authorized
+					'/login':	'loginInit' // Login
 				}
 			});
 
