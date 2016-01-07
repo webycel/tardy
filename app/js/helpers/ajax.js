@@ -15,11 +15,11 @@ var TardyAjax = (function(document, $) {
 				displayAuthErrorMessage();
 
 				if (!TardySession.getUser()) {
-					TardyService.redirectTo('/login');
+					TardyViews.redirectTo('/login');
 				}
 			} else if (xhr.status === 422) {
 				// Unprocessable Entity (invalid login)
-				TardyService.displayErrorMessage(JSON.parse(xhr.response));
+				TardyViews.displayErrorMessage(JSON.parse(xhr.response));
 			}
 
 		};
@@ -39,7 +39,7 @@ var TardyAjax = (function(document, $) {
 				status: '401',
 				errors: 'You don\'t have permission to view this page or perform this action.'
 			};
-			TardyService.displayErrorMessage(error);
+			TardyViews.displayErrorMessage(error);
 		};
 
 

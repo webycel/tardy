@@ -12,7 +12,7 @@ var TardySession = (function(document, $) {
 	};
 
 	var loginInit = function() {
-		TardyService.displayView('#login');
+		TardyViews.displayView('#login');
 	};
 
 	var loginSubmit = function(e) {
@@ -47,7 +47,6 @@ var TardySession = (function(document, $) {
 	var getAuthData = function() {
 		var auth = JSON.parse(localStorage.getItem('user'));
 		user = _.isNull(auth) ? null : auth.user;
-		console.log(user);
 	};
 
 	var getUser = function() {

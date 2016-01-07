@@ -26,7 +26,7 @@
       <div class="small-12 small-centered medium-10 medium-centered columns">
 
         <!-- AUTH ERROR - START -->
-        <script type="text/html" id='error-message'>
+        <script type="text/html" id='error-message-template'>
         <div class="row">
           <div class="small-12 medium-8 medium-centered large-6 large-centered">
             <p class="alert-box alert">
@@ -36,7 +36,7 @@
           </div>
         </div>
         </script>
-        <div id="error_target"></div>
+        <div id="error__target"></div>
         <!-- AUTH ERROR - END -->
 
 
@@ -60,6 +60,31 @@
           </div>
         </div>
         <!-- LOGIN / REGISTER - END -->
+
+
+
+        <!-- TEAM LIST - START -->
+        <script type="text/html" id='teams-template'>
+        <div id="teams" class="row teams content__element hide">
+          <div class="small-10 small-centered medium-6 medium-centered large-4 large-centered columns">
+            <ul class="list">
+            <%
+              _.each(teams, function(team, key, list) {
+            %>
+              <li>
+              <%=
+                team.name
+              %>
+              </li>
+            <%
+              });
+            %>
+            </ul>
+          </div>
+        </div>
+        </script>
+        <div id="teams__target"></div>
+        <!-- TEAM LIST - END -->
 
 
 
@@ -100,6 +125,7 @@
     <script src="js/app.js"></script>
     <script src="js/helpers/ajax.js"></script>
     <script src="js/helpers/service.js"></script>
+    <script src="js/helpers/views.js"></script>
     <script src="js/session.js"></script>
     <script src="js/team.js"></script>
     <!-- endbuild -->
