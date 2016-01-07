@@ -8,11 +8,10 @@ var TardyTeam = (function(document, $) {
 				type: 'GET',
 				url: Tardy.API_URL + '/users/1/teams',
 				dataType: 'json',
-				context: $('body'),
 				success: indexAjaxSuccess
 			};
 
-			TardyAjax.get(ajaxSettings);
+			TardyAjax.send(ajaxSettings);
 
 		};
 

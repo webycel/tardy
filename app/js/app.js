@@ -1,11 +1,21 @@
 'use strict';
 
 var Tardy = (function(document, $) {
+
 	var docElem = document.documentElement,
 		API_URL = 'http://localhost:3000/api',
+
 		userAgentInit = function() {
 			docElem.setAttribute('data-useragent', navigator.userAgent);
 		},
+
+		init = function() {
+			TardyService.init()
+			TardySession.init()
+
+			initRouter();
+		},
+
 		initRouter = function() {
 			var handler = {
 				teamIndex:		TardyTeam.index,
@@ -27,8 +37,11 @@ var Tardy = (function(document, $) {
 
 			router.run();
 		};
+
 	return {
-		init: initRouter,
+		init: init,
+		initRouter: initRouter,
 		API_URL: API_URL
 	};
+
 })(document, Zepto);

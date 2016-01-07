@@ -2,19 +2,21 @@
 
 var TardyAjax = (function(document, $) {
 
-		var get = function(settings) {
+		var send = function(settings) {
 			settings.error = setErrorHandler(settings.error);
 			$.ajax(settings);
 		};
 
 		var errorHandler = function(xhr, type) {
-			console.log(xhr, xhr.status, type);
 			var template, error;
 
 			if (xhr.status === 401) {
 				// Unauthorized
 				TardyService.reloadPageWithHash('/unauthorized');
 				displayAuthErrorMessage();
+			} else if (xhr.status === 422) {
+				// Unprocessable Entity (invalid login)
+				TardyService.displayErrorMessage('#auth_error', JSON.parse(xhr.response));
 			}
 
 		};
@@ -32,14 +34,14 @@ var TardyAjax = (function(document, $) {
 		var displayAuthErrorMessage = function() {
 			var error = {
 				status: '401',
-				message: 'You don\'t have permission to view this page or perform this action.'
+				errors: 'You don\'t have permission to view this page or perform this action.'
 			};
 			TardyService.displayErrorMessage('#auth_error', error);
 		};
 
 
 	return {
-		get: get,
+		send: send,
 		displayAuthErrorMessage: displayAuthErrorMessage
 	};
 
