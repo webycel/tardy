@@ -6927,4 +6927,19 @@ th.hide-for-touch {
     margin-top: 0;
     color: #FFFFFF;
   }
+
+  .list {
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    list-style: none;
+  }
+  .list li {
+    display: block;
+    padding: 0;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .list li a {
+    display: block;
+    padding: 1.25rem 0rem;
+  }
 }

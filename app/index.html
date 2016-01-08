@@ -22,8 +22,8 @@
       <h1 class="name">Tardy</h1>
     </header>
 
-    <div class="row">
-      <div class="small-12 small-centered medium-10 medium-centered columns">
+    <!-- <div class="row"> -->
+      <!-- <div class="small-12 small-centered medium-10 medium-centered"> -->
 
         <!-- AUTH ERROR - START -->
         <script type="text/html" id='error-message-template'>
@@ -66,15 +66,15 @@
         <!-- TEAM LIST - START -->
         <script type="text/html" id='teams-template'>
         <div id="teams" class="row teams content__element hide">
-          <div class="small-10 small-centered medium-6 medium-centered large-4 large-centered columns">
+          <div class="small-12 small-centsered medium-6 medium-centered large-4 large-centered">
             <ul class="list">
             <%
               _.each(teams, function(team, key, list) {
             %>
               <li>
-              <%=
-                team.name
-              %>
+                <a href="#">
+                  <span class="name"><%= team.name %></span>
+                </a>
               </li>
             <%
               });
@@ -88,8 +88,8 @@
 
 
 
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
 
     <!-- build:js js/vendor/libraries.min.js -->
     <!-- bower:js -->
